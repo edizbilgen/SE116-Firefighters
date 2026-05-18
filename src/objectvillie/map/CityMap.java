@@ -1,3 +1,7 @@
+package src.objectvillie.map;
+
+import src.objectvillie.cells.Cell;
+
 public class CityMap {
     //n*m grid structer
     private Cell[][] cellsGrid;

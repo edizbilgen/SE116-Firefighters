@@ -1,3 +1,5 @@
+package src.objectvillie.cells;
+
 public abstract class Cell {
     protected int x;
     protected int y;
