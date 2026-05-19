@@ -2,7 +2,7 @@ package src.objectvillie.cells;
 
 
 
-public class Zone extends Cell{
+public abstract class Zone extends Cell{
 
     protected int level;
 
