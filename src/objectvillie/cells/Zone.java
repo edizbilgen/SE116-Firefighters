@@ -103,4 +103,11 @@ public abstract class Zone extends Cell{
         this.hasSecurity = hasSecurity;
     }
 
+    public int calculateUtilityDemand(){
+        if (this.output <1){
+            return 1;
+        }
+        return this.output;
+    }
+
 }
