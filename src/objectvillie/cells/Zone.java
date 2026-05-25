@@ -108,6 +108,4 @@ public abstract class Zone extends Cell{
         this.hasSecurity = hasSecurity;
     }
 
-
-
 }
