@@ -44,37 +44,9 @@ public abstract class UtilityProvider {
     public abstract char getSymbol();
 }
 
-class PowerPlant extends UtilityProvider{
-    public PowerPlant( int x, int y) {
-        super( x, y);
-    }
 
-    @Override
-    public char getSymbol(){
-        return 'P';
-    }
-}
-class WaterPumpingStation extends UtilityProvider{
-    public WaterPumpingStation( int x, int y) {
-        super( x, y);
-    }
 
-    @Override
-    public char getSymbol(){
-        return 'W';
-    }
 
-}
-class InternetHub extends UtilityProvider{
-    public InternetHub( int x, int y) {
-        super( x, y);
-    }
-
-    @Override
-    public char getSymbol() {
-        return 'T';
-    }
-}
 
 
 
