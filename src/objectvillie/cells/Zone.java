@@ -16,10 +16,10 @@ public abstract class Zone extends Cell{
     protected boolean hasHealth;
     protected boolean hasEducation;
     protected int output;
-    protected int utilityDemand;
 
 
-    public Zone(int x, int y, char symbol, int level, int electricity, int water, int internet, int population, int goods, int lifestyle, boolean hasSecurity, boolean hasHealth, boolean hasEducation, int output, int utilityDemand) {
+
+    public Zone(int x, int y, char symbol, int level, int electricity, int water, int internet, int population, int goods, int lifestyle, boolean hasSecurity, boolean hasHealth, boolean hasEducation, int output) {
         super(x, y, symbol);
         this.level = level;
         this.electricity = electricity;
@@ -32,7 +32,7 @@ public abstract class Zone extends Cell{
         this.hasHealth = hasHealth;
         this.hasEducation = hasEducation;
         this.output = output;
-        this.utilityDemand = utilityDemand;
+
     }
 
     public int getLevel() {
@@ -77,12 +77,7 @@ public abstract class Zone extends Cell{
     public void setLifestyle(int lifestyle) {
         this.lifestyle = lifestyle;
     }
-    public int getUtilityDemand() {
-        return utilityDemand;
-    }
-    public void setUtilityDemand(int utilityDemand) {
-        this.utilityDemand = utilityDemand;
-    }
+
     public int getOutput() {
         return output;
     }
@@ -108,6 +103,11 @@ public abstract class Zone extends Cell{
         this.hasSecurity = hasSecurity;
     }
 
-
-
+    public int calculateUtilityDemand(){
+        if (this.output <1){
+            return 1;
+        }
+        return this.output;
+    }
+    
 }
