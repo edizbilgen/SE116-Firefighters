@@ -110,4 +110,12 @@ public abstract class Zone extends Cell{
         return this.output;
     }
 
+    public abstract void processTick();
+
+    public abstract void generateResources();
+
+    public abstract void canUpgrade();
+
+
+
 }
