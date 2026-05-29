@@ -21,17 +21,8 @@ public abstract class Zone extends Cell{
 
     public Zone(int x, int y, char symbol, int level, int electricity, int water, int internet, int population, int goods, int lifestyle, boolean hasSecurity, boolean hasHealth, boolean hasEducation, int output) {
         super(x, y, symbol);
-        this.level = level;
-        this.electricity = electricity;
-        this.water = water;
-        this.internet = internet;
-        this.population = population;
-        this.goods = goods;
-        this.lifestyle = lifestyle;
-        this.hasSecurity = hasSecurity;
-        this.hasHealth = hasHealth;
-        this.hasEducation = hasEducation;
-        this.output = output;
+        level = 0;
+        output = 0;
 
     }
 
@@ -114,7 +105,32 @@ public abstract class Zone extends Cell{
 
     public abstract void generateResources();
 
-    public abstract void canUpgrade();
+    public abstract boolean canUpgrade();
+
+
+    public void resetTickData(){
+
+    }
+    public void addElectricity(int amount) {
+
+    }
+    public void addWater(int amount){
+
+    }
+    public void addInternet(int amount){
+
+    }
+    public void addPopulation(int amount){
+
+    }
+    public void addGoods(int amount){
+
+    }
+    public void addLifestyle(int amount){
+
+    }
+
+
 
 
 
