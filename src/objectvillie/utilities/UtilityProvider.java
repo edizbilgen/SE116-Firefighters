@@ -1,16 +1,17 @@
 package src.objectvillie.utilities;
 
-public abstract class UtilityProvider {
+import src.objectvillie.cells.Cell;
+
+public abstract class UtilityProvider extends Cell {
     protected int maxCapacity; // 100
     protected int currentCapacity;
-    protected int x;
-    protected int y;
 
-    public UtilityProvider(  int x, int y) {
+
+    public UtilityProvider(int x, int y, char symbol ) {
+        super(x, y, symbol);
         this.maxCapacity = 100;
         this.currentCapacity = 100;
-        this.x = x;
-        this.y = y;
+
     }
 
     public int getMaxCapacity() {
