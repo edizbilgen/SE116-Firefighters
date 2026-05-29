@@ -19,10 +19,10 @@ public abstract class Zone extends Cell{
 
 
 
-    public Zone(int x, int y, char symbol, int level, int electricity, int water, int internet, int population, int goods, int lifestyle, boolean hasSecurity, boolean hasHealth, boolean hasEducation, int output) {
+    public Zone(int x, int y, char symbol) {
         super(x, y, symbol);
-        level = 0;
-        output = 0;
+        this.level = 0;
+        this.output = 0;
 
     }
 
