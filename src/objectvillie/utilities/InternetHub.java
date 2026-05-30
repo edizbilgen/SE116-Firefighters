@@ -1,8 +1,8 @@
 package src.objectvillie.utilities;
 
 class InternetHub extends UtilityProvider{
-    public InternetHub( int x, int y) {
-        super( x, y);
+    public InternetHub(int x, int y, char symbol) {
+        super(x, y, symbol);
     }
 
     @Override

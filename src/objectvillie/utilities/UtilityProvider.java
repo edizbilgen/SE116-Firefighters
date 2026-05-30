@@ -11,7 +11,6 @@ public abstract class UtilityProvider extends Cell {
         super(x, y, symbol);
         this.maxCapacity = 100;
         this.currentCapacity = 100;
-
     }
 
     public int getMaxCapacity() {
