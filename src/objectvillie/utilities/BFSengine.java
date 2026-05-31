@@ -31,7 +31,7 @@ public class BFSengine {
 
              char type = utilityProvider.getSymbol();
              if (type == 'P'){
-                 currentZone.addElectricity(allocatedAmount);
+                 currentzone.addElectricity(allocatedAmount);
              }
              else if (type == 'W'){
                  currentzone.addWater(allocatedAmount);
