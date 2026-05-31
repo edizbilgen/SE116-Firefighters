@@ -21,6 +21,36 @@ public class BFSengine {
 
      while (utilityProvider.getCurrentCapacity()>0 && !cells.isEmpty()){
          Cell currentCell=cells.poll();
+
+         if(currentCell instanceof Zone){
+             Zone currentzone = (Zone) currentCell;
+             int demand = currentzone.calculateUtilityDemand();
+             int availableCapacity = utilityProvider.getCurrentCapacity();
+
+             int allocatedAmount = Math.min(demand,availableCapacity);
+
+             char type = utilityProvider.getSymbol();
+             if (type == 'P'){
+                 currentZone.addElectricity(allocatedAmount);
+             }
+             else if (type == 'W'){
+                 currentZone.addWater(allocatedAmount);
+             }
+             else if (type == 'T'){
+                 currentZone.addInternet(allocatedAmount);
+             }
+             utilityProvider.setCurrentCapacity(availableCapacity - allocatedAmount);
+         }
+         for (int i = 0; i < 4; i++) {
+             int nextRow = currentCell.getX() + dRow[i];
+             int nextCol = currentCell.getY() + dCol[i];
+
+             Cell nextCell = cityMap.getCell(nextRow, nextCol);
+             if(nextCell != null && !visited[nextRow][nextCol] && !(nextCell instanceof EmptyCell)){
+                 cells.add(nextCell);
+                 visit(nextCell,visited);
+             }
+         }
          
          if(currentCell instanceof Zone){
              
