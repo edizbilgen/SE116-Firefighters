@@ -23,8 +23,8 @@ public class BFSengine {
          Cell currentCell=cells.poll();
 
          if(currentCell instanceof Zone){
-             Zone currentZone = (Zone) currentCell;
-             int demand = currentZone.calculateUtilityDemand();
+             Zone currentzone = (Zone) currentCell;
+             int demand = currentzone.calculateUtilityDemand();
              int availableCapacity = utilityProvider.getCurrentCapacity();
 
              int allocatedAmount = Math.min(demand,availableCapacity);
