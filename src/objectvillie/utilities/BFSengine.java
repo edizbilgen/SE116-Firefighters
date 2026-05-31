@@ -36,8 +36,8 @@ public class BFSengine {
              else if (type == 'W'){
                  currentZone.addWater(allocatedAmount);
              }
-             else if (type == 'T'){
-                 currentZone.addInternet(allocatedAmount);
+             else if (type == 'T') {
+                 currentzone.addInternet(allocatedAmount);
              }
              utilityProvider.consumeUtility(allocatedAmount);
          }
