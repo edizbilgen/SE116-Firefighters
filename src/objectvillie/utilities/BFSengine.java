@@ -39,7 +39,7 @@ public class BFSengine {
              else if (type == 'T'){
                  currentZone.addInternet(allocatedAmount);
              }
-             utilityProvider.setCurrentCapacity(availableCapacity - allocatedAmount);
+             utilityProvider.consumeUtility(allocatedAmount);
          }
          for (int i = 0; i < 4; i++) {
              int nextRow = currentCell.getX() + dRow[i];
