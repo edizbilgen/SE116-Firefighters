@@ -106,11 +106,26 @@ public abstract class Zone extends Cell{
     public abstract void generateResources();
 
     public abstract boolean canUpgrade();
-
-
-    public void resetTickData(){
-
-    }
+    public void applyNextState(){
+        this.electricity = this.nextElectricity;
+        this.water = this.nextWater;
+        this.internet = this.nextInternet;
+        this.population = this.nextPopulation;
+        this.goods = this.nextGoods;
+        this.lifestyle = this.nextLifestyle;
+        this.hasSecurity = this.nextHasSecurity;
+        this.hasHealth = this.nextHasHealth;
+        this.hasEducation = this.nextHasEducation;
+        resetTickData();}
+    public void resetTickData(){this.nextPopulation = 0;
+this.nextGoods = 0;
+this.nextLifestyle = 0;
+this.nextElectricity = 0;
+this.nextWater = 0;
+this.nextInternet = 0;
+this.nextHasSecurity = false;
+this.nextHasHealth = false;
+this.nextHasEducation = false;}
     public int calculateM(){
         return Math.min(this.electricity, Math.min(this.water, this.internet));}
     public void addElectricity(int amount) {this.nextElectricity += amount;}
