@@ -111,24 +111,14 @@ public abstract class Zone extends Cell{
     public void resetTickData(){
 
     }
-    public void addElectricity(int amount) {
-
-    }
-    public void addWater(int amount){
-
-    }
-    public void addInternet(int amount){
-
-    }
-    public void addPopulation(int amount){
-
-    }
-    public void addGoods(int amount){
-
-    }
-    public void addLifestyle(int amount){
-
-    }
+    public int calculateM(){
+        return Math.min(this.electricity, Math.min(this.water, this.internet));}
+    public void addElectricity(int amount) {this.nextElectricity += amount;}
+    public void addWater(int amount){this.nextWater += amount;}
+    public void addInternet(int amount){this.nextInternet += amount;}
+    public void addPopulation(int amount){this.nextPopulation += amount;}
+    public void addGoods(int amount){this.nextGoods += amount;}
+    public void addLifestyle(int amount){this.nextLifestyle += amount;}
 
 
 
