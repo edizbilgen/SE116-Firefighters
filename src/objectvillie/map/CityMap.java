@@ -29,5 +29,64 @@ public class CityMap {
         return this.col;
     }
 
+    public void readMap(String mapFile){
+        ArrayList<String> lines = new ArrayList<>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(mapFile));
+            String line;
+            while ((line = br.readLine()) != null){
+                lines.add(line.trim());
+            }
+        }catch(Exception e){
+            System.out.println("Error reading map file"+ e.getMessage());
+            return;
+        }
+        if(lines.isEmpty()){
+            System.out.println("Empty map file");
+            return;
+        }
+        this.row = lines.size();
+        this.col = lines.get(0).length();
+        this.cellsGrid = new Cell[row][col];
+        for(int i = 0; i < row; i++){
+            String line = lines.get(i);
+            if(line.length() != col ){
+                System.out.println("Map row length not equal to column length");
+            return;
+            }
+            for(int j = 0; j < col; j++){
+                char symbol = line.charAt(j);
+                switch(symbol){
+                    case 'E':
+                        cellsGrid[i][j] = new EmptyCell(i,j);
+                        break;
+                    case 'P':
+                        cellsGrid[i][j] = new PowerPlant(i,j,'P');
+                        break;
+                        case 'W':
+                            cellsGrid[i][j] = new WaterPumpingStation(i,j,'W');
+                            break;
+                    case 'T':
+                        cellsGrid[i][j] = new InternetHub(i,j,'T');
+                        break;
+                    case 'H':
+                        cellsGrid[i][j] = new HouseZone(i,j,'H');
+                        break;
+                        case 'I':
+                            cellsGrid[i][j] = new IndustrialZone(i,j,'I');
+                            break;
+                    case 'C':
+                        cellsGrid[i][j] = new CommercialZone(i,j,'C');
+                        break;
+                        //ı will add more zone
+                        default:
+                            cellsGrid[i][j] = new  EmptyCell(i,j);
+                            break;
+                }
+            }
+        }
+    }
+
 
 }
