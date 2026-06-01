@@ -17,12 +17,26 @@ public abstract class Zone extends Cell{
     protected boolean hasEducation;
     protected int output;
 
+    protected int nextElectricity;
+    protected int nextWater;
+    protected int nextInternet;
+    protected int nextPopulation;
+    protected int nextGoods;
+    protected int nextLifestyle;
+
+    protected boolean nextHasSecurity;
+    protected boolean nextHasHealth;
+    protected boolean nextHasEducation;
+
+
+
 
 
     public Zone(int x, int y, char symbol) {
         super(x, y, symbol);
         this.level = 0;
         this.output = 0;
+        resetTickData();
 
     }
 

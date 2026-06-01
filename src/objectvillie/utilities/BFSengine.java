@@ -24,7 +24,6 @@ public class BFSengine {
 
      while (utilityProvider.getCurrentCapacity()>0 && !cells.isEmpty()){
          Cell currentCell=cells.poll();
-         
      }
  }
 }
