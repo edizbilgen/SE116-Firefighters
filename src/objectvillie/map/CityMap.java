@@ -22,7 +22,7 @@ public class CityMap {
     }
     //u can access all cell with this method
     public Cell getCell(int i, int j) {
-       if(i<0 && i>=row && j<0 && j>=col){
+       if(i >= 0 && i < row && j >= 0 && j < col){
         return cellsGrid[i][j];
        }
        return null;
@@ -40,8 +40,7 @@ public class CityMap {
     public void readMap(String mapFile){
         ArrayList<String> lines = new ArrayList<>();
 
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(mapFile));
+        try(BufferedReader br = new BufferedReader(new FileReader(mapFile))){
             String line;
             while ((line = br.readLine()) != null){
                 lines.add(line.trim());

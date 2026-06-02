@@ -152,7 +152,7 @@ public class SimulationEngine {
      private void printMapState() {
          for(int i = 0; i < cityMap.getRow(); i++) {
              for(int j = 0; j < cityMap.getCol(); j++) {
-                 System.out.println(cityMap.getCell(i,j).getSymbol() + " ");
+                 System.out.print(cityMap.getCell(i,j).getSymbol() + " ");
              }
              System.out.println();
          }
