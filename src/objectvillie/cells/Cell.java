@@ -9,6 +9,7 @@ public abstract class Cell {
         this.y = y;
         this.symbol = symbol;
     }
+
     public int getX() {
         return x;
     }
