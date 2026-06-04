@@ -64,14 +64,14 @@ public class SimulationEngine {
              for (int v = 0; v < cityMap.getRow(); v++) {
                  for (int k = 0; k < cityMap.getCol(); k++) {
                      Cell cell = cityMap.getCell(v,k);
-                 if (cell instanceof Zone) {
+                    if (cell instanceof Zone) {
                      Zone zone = (Zone) cell;
                      zone.applyNextState();
                      /*
                      Alp here is your job U will calculate electric water like this somethinf look service position
                      and calculate incirease or decrase
                       */
-                 }
+                    }
                  }
              }
              accumulateGlobalResources();
