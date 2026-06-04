@@ -13,6 +13,23 @@ public class IndustrialZone extends Zone {
 
     @Override
     public void generateResources() {
+        int m = Math.min(electricity, water);
+
+        if (level == 0) {
+            output = 0;
+        }
+
+        else if (level == 1) {
+            output = m;
+        }
+
+        else if (level == 2) {
+            output = 2 * m;
+        }
+
+        else if (level == 3) {
+            output = (2 * m) + population;
+        }
 
     }
 
@@ -24,15 +41,15 @@ public class IndustrialZone extends Zone {
             }
             return false;
         }
-
         else if (level == 1) {
-            if (hasSecurity) {
+
+            if (population > 0 && electricity > 0 && water > 0 && hasSecurity) {
                 return true;
             }
             return false;
         }
         else if (level == 2) {
-            if (population > 1) {
+            if (population > 1 && electricity > 0 && water > 0 && hasSecurity) {
                 return true;
             }
             return false;

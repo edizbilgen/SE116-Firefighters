@@ -13,7 +13,23 @@ public class HouseZone extends Zone {
 
     @Override
     public void generateResources() {
+        int m = calculateM();
 
+        if (level == 0) {
+            output = 0;
+        }
+
+        else if (level == 1) {
+            output = m;
+        }
+
+        else if (level == 2) {
+            output = 2 * m;
+        }
+
+        else if (level == 3) {
+            output = (2 * m) + lifestyle;
+        }
     }
 
     @Override
@@ -25,19 +41,17 @@ public class HouseZone extends Zone {
             return false;
         }
         else if (level == 1) {
-            if (hasSecurity && hasHealth && hasEducation) {
+            if (electricity > 0 && water > 0 && internet > 0 && hasSecurity && hasHealth && hasEducation) {
                 return true;
             }
             return false;
         }
         else if (level == 2) {
-
-            if (lifestyle > 0) {
+            if (electricity > 0 && water > 0 && internet > 0 && hasSecurity && hasHealth && hasEducation && lifestyle > 0) {
                 return true;
             }
             return false;
         }
         return false;
-
     }
 }
