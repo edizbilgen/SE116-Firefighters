@@ -18,6 +18,26 @@ public class HouseZone extends Zone {
 
     @Override
     public boolean canUpgrade() {
+        if (level == 0) {
+            if (electricity > 0 && water > 0 && internet > 0) {
+                return true;
+            }
+            return false;
+        }
+        else if (level == 1) {
+            if (hasSecurity && hasHealth && hasEducation) {
+                return true;
+            }
+            return false;
+        }
+        else if (level == 2) {
+
+            if (lifestyle > 0) {
+                return true;
+            }
+            return false;
+        }
         return false;
+
     }
 }
