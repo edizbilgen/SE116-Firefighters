@@ -8,6 +8,17 @@ public class CommercialZone extends Zone{
 
     @Override
     public void processTick() {
+        if (electricity == 0 || water == 0 || internet == 0) {
+            level = 0;
+            output = 0;
+            return;
+        }
+
+        if (level < 3 && canUpgrade()) {
+            level++;
+        }
+
+        generateResources();
 
     }
 
