@@ -11,10 +11,12 @@ public abstract class Zone extends Cell{
     protected int internet;
     protected int population;
     protected int goods;
+
     protected int lifestyle;
     protected boolean hasSecurity;
     protected boolean hasHealth;
     protected boolean hasEducation;
+
     protected int output;
 
     protected int nextElectricity;
@@ -120,6 +122,14 @@ public abstract class Zone extends Cell{
     public abstract void generateResources();
 
     public abstract boolean canUpgrade();
+
+    @Override
+
+    public String toString() {
+        return getClass().getSimpleName() + "  level=" + level + ", electricity=" + electricity + ", water=" + water + ", internet=" + internet + ", population=" + population + ", goods=" + goods +", lifestyle=" + lifestyle + ", output=" + output ;
+    }
+
+
     public void applyNextState(){
         this.electricity = this.nextElectricity;
         this.water = this.nextWater;
@@ -132,14 +142,14 @@ public abstract class Zone extends Cell{
         this.hasEducation = this.nextHasEducation;
         resetTickData();}
     public void resetTickData(){this.nextPopulation = 0;
-this.nextGoods = 0;
-this.nextLifestyle = 0;
-this.nextElectricity = 0;
-this.nextWater = 0;
-this.nextInternet = 0;
-this.nextHasSecurity = false;
-this.nextHasHealth = false;
-this.nextHasEducation = false;}
+        this.nextGoods = 0;
+        this.nextLifestyle = 0;
+        this.nextElectricity = 0;
+        this.nextWater = 0;
+        this.nextInternet = 0;
+        this.nextHasSecurity = false;
+        this.nextHasHealth = false;
+        this.nextHasEducation = false;}
     public int calculateM(){
         return Math.min(this.electricity, Math.min(this.water, this.internet));}
     public void addElectricity(int amount) {this.nextElectricity += amount;}
