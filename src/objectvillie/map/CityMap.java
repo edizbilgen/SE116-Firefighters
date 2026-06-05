@@ -87,10 +87,10 @@ public class CityMap {
                         cellsGrid[i][j] = new CommercialZone(i,j,'C');
                         break;
                     case 'F':
-                        cellsGrid[i][j] = new PoliceStation(i,j,'P');
+                        cellsGrid[i][j] = new PoliceStation(i,j,'F');
                         break;
                     case 'D':
-                        cellsGrid[i][j] = new Hospital(i,j,'H');
+                        cellsGrid[i][j] = new Hospital(i,j,'D');
                         break;
                     case 'S':
                         cellsGrid[i][j] = new School(i,j,'S');
