@@ -86,6 +86,15 @@ public class CityMap {
                     case 'C':
                         cellsGrid[i][j] = new CommercialZone(i,j,'C');
                         break;
+                    case 'F':
+                        cellsGrid[i][j] = new PoliceStation(i,j,'P');
+                        break;
+                    case 'D':
+                        cellsGrid[i][j] = new Hospital(i,j,'H');
+                        break;
+                    case 'S':
+                        cellsGrid[i][j] = new School(i,j,'S');
+                        break;
                         //ı will add more zone
                         default:
                             cellsGrid[i][j] = new  EmptyCell(i,j);

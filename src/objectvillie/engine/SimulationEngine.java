@@ -166,10 +166,6 @@ public class SimulationEngine {
                  if (cell instanceof Zone) {
                      Zone zone = (Zone) cell;
 
-                     /*
-                     Alp you goona write here what is the building right now level and 'm'
-                     then u you calculate new output amount after u make a set thaht amount
-                      */
                      char symbol = zone.getSymbol();
                      if(symbol == 'H'){
                          totalPopulation += zone.getOutput();
