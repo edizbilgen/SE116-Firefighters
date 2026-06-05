@@ -1,7 +1,6 @@
 package src.objectvillie.engine;
 
-import src.objectvillie.cells.Cell;
-import src.objectvillie.cells.Zone;
+import src.objectvillie.cells.*;
 import src.objectvillie.map.CityMap;
 import src.objectvillie.utilities.BFSengine;
 import src.objectvillie.utilities.UtilityProvider;
@@ -35,14 +34,7 @@ public class SimulationEngine {
              System.out.println("Now We are in " + i);
 
 
-             /* Services are provided
-             Alp here is your job u gonna find the buidings and take these cordinate
-             then you start the algoritma and you triger inside the Zone metthods ı think u got this
-              */
-
-
-
-
+             provideServices();
 
 
 
@@ -67,10 +59,7 @@ public class SimulationEngine {
                     if (cell instanceof Zone) {
                      Zone zone = (Zone) cell;
                      zone.applyNextState();
-                     /*
-                     Alp here is your job U will calculate electric water like this somethinf look service position
-                     and calculate incirease or decrase
-                      */
+                     zone.processTick();
                     }
                  }
              }
@@ -78,6 +67,53 @@ public class SimulationEngine {
              printMapState();
          }
      }
+    private void provideServices() {
+
+        for (int i = 0; i < cityMap.getRow(); i++) {
+            for (int j = 0; j < cityMap.getCol(); j++) {
+
+                Cell cell = cityMap.getCell(i, j);
+
+                if (!(cell instanceof ServiceProvider)) {
+                    continue;
+                }
+
+                ServiceProvider service = (ServiceProvider) cell;
+
+                for (int r = 0; r < cityMap.getRow(); r++) {
+
+                    for (int c = 0; c < cityMap.getCol(); c++) {
+
+                        Cell target = cityMap.getCell(r, c);
+
+                        if (!(target instanceof Zone)) {
+                            continue;
+                        }
+
+                        int distance = Math.abs(i - r) + Math.abs(j - c);
+
+                        if (distance <= service.getRadius()) {
+
+                            Zone zone = (Zone) target;
+
+                            if (service instanceof PoliceStation) {
+                                zone.addSecurity();
+                            }
+
+                            else if (service instanceof Hospital) {
+                                zone.addHealth();
+                            }
+
+                            else if (service instanceof School) {
+                                zone.addEducation();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
      private void distributeGlobalResources() {
          ArrayList<Zone> houses = new  ArrayList<>();
          ArrayList<Zone> industrialCommercial = new ArrayList<>();

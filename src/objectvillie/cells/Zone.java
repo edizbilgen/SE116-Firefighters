@@ -159,8 +159,16 @@ public abstract class Zone extends Cell{
     public void addGoods(int amount){this.nextGoods += amount;}
     public void addLifestyle(int amount){this.nextLifestyle += amount;}
 
+    public void addSecurity() {
+        nextHasSecurity = true;
+    }
 
+    public void addHealth() {
+        nextHasHealth = true;
+    }
 
-
+    public void addEducation() {
+        nextHasEducation = true;
+    }
 
 }
