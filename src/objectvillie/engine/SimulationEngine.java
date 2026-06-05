@@ -191,6 +191,31 @@ public class SimulationEngine {
          System.out.println("Total Population: " + totalPopulation + " Total Goods " +  totalGoods + " Total Lifestyle " + totalLifestyle);
      }
 
-     // denemek için main yazıcam sonra
+    public static void main(String[] args) {
+        String mapFilePath;
+        int ticks;
+        if (args.length >= 2) {
+            mapFilePath = args[0];
+            try {
+                ticks = Integer.parseInt(args[1]);
+            } catch (NumberFormatException e) {
+                System.out.println("Error: ticks are not valid number");
+                return;
+            }
+        } else {
+
+            System.out.println("There is no argument default tick starting");
+            mapFilePath = "mymap.txt";
+            ticks = 5;
+        }
+
+        try {
+            SimulationEngine engine = new SimulationEngine(mapFilePath, ticks);
+            engine.runSimulation();
+        } catch (Exception e) {
+            System.out.println("Simulation stopped because of the error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 
 }
