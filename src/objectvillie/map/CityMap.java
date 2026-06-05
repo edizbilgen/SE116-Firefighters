@@ -46,8 +46,7 @@ public class CityMap {
                 lines.add(line.trim());
             }
         }catch(Exception e){
-            System.out.println("Error reading map file"+ e.getMessage());
-            return;
+            throw new RuntimeException("Error reading map file: " + e.getMessage());
         }
         if(lines.isEmpty()){
             System.out.println("Empty map file");
@@ -95,6 +94,9 @@ public class CityMap {
                     case 'S':
                         cellsGrid[i][j] = new School(i,j,'S');
                         break;
+                    case'R':
+                    cellsGrid[i][j] = new Road(i,j,'R');
+                    break;
                         //ı will add more zone
                         default:
                             cellsGrid[i][j] = new  EmptyCell(i,j);

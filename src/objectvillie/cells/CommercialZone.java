@@ -35,7 +35,11 @@ public class CommercialZone extends Zone{
     public void generateResources() {
         int m = calculateM();
         if (level == 0) {
-            output = 0;
+            if (electricity > 0 && water > 0 && internet > 0) {
+                output = 1;
+            } else {
+                output = 0;
+            }
         }
 
         else if (level == 1) {
@@ -54,7 +58,7 @@ public class CommercialZone extends Zone{
     @Override
     public boolean canUpgrade() {
         if (level == 0) {
-            if (population > 0 && goods > 0 && electricity > 0 && water > 0 && internet > 0) {
+            if ( electricity > 0 && water > 0 && internet > 0) {
                 return true;
             }
             return false;

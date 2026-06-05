@@ -35,7 +35,11 @@ public class IndustrialZone extends Zone {
         int m = Math.min(electricity, water);
 
         if (level == 0) {
-            output = 0;
+            if (electricity > 0 && water > 0) {
+                output = 1;
+            } else {
+                output = 0;
+            }
         }
 
         else if (level == 1) {
@@ -55,7 +59,7 @@ public class IndustrialZone extends Zone {
     @Override
     public boolean canUpgrade() {
         if (level == 0) {
-            if (population > 0 && electricity > 0 && water > 0) {
+            if ( electricity > 0 && water > 0) {
                 return true;
             }
             return false;

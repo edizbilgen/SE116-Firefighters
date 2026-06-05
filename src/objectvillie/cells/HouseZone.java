@@ -34,7 +34,11 @@ public class HouseZone extends Zone {
         int m = calculateM();
 
         if (level == 0) {
-            output = 0;
+            if (electricity > 0 && water > 0 && internet > 0) {
+                output = 1;
+            } else {
+                output = 0;
+            }
         }
 
         else if (level == 1) {

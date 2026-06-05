@@ -51,7 +51,6 @@ public class SimulationEngine {
                      }
                  }
              }
-             distributeGlobalResources();
              //Zones are updated
              for (int v = 0; v < cityMap.getRow(); v++) {
                  for (int k = 0; k < cityMap.getCol(); k++) {
@@ -64,6 +63,8 @@ public class SimulationEngine {
                  }
              }
              accumulateGlobalResources();
+
+             distributeGlobalResources();
 
          }
      }
@@ -224,7 +225,7 @@ public class SimulationEngine {
             engine.runSimulation();
         } catch (Exception e) {
             System.out.println("Simulation stopped because of the error: " + e.getMessage());
-            e.printStackTrace();
+
         }
     }
 
