@@ -30,13 +30,17 @@ public class BFSengine {
                  int demand=((Zone) currentCell).calculateUtilityDemand();
                  
                  int allocatedAmount =Math.min(demand,utilityProvider.getCurrentCapacity());
+                  String zoneType = currentCell.getClass().getSimpleName().replace("Zone", "");
 
                   if (utilityProvider.getSymbol() == 'P') {
                       ((Zone)currentCell).addElectricity(allocatedAmount);
+                      System.out.println(zoneType + " at (" + currentCell.getX() + "," + currentCell.getY() + ") received " + allocatedAmount + " electricity");
                   } else if (utilityProvider.getSymbol() == 'W') {
                       ((Zone)currentCell).addWater(allocatedAmount);
+                      System.out.println(zoneType + " at (" + currentCell.getX() + "," + currentCell.getY() + ") received " + allocatedAmount + " water");
                   } else if (utilityProvider.getSymbol() == 'T') {
                       ((Zone)currentCell).addInternet(allocatedAmount);
+                      System.out.println(zoneType + " at (" + currentCell.getX() + "," + currentCell.getY() + ") received " + allocatedAmount + " internet");
                   }
 
                   utilityProvider.consumeUtility(allocatedAmount);

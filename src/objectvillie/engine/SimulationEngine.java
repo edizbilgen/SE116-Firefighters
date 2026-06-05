@@ -31,7 +31,7 @@ public class SimulationEngine {
      }
      public void runSimulation() {
          for(int i=0;i<totalTick;i++) {
-             System.out.println("Now We are in " + i);
+             System.out.println("Tick " + (i+1));
 
 
              provideServices();
@@ -64,7 +64,7 @@ public class SimulationEngine {
                  }
              }
              accumulateGlobalResources();
-             printMapState();
+
          }
      }
     private void provideServices() {
@@ -95,17 +95,21 @@ public class SimulationEngine {
                         if (distance <= service.getRadius()) {
 
                             Zone zone = (Zone) target;
+                            String zoneType = zone.getClass().getSimpleName().replace("Zone", "");
 
                             if (service instanceof PoliceStation) {
                                 zone.addSecurity();
+                                System.out.println(zoneType + " at (" + r + "," + c + ") received security service");
                             }
 
                             else if (service instanceof Hospital) {
                                 zone.addHealth();
+                                System.out.println(zoneType + " at (" + r + "," + c + ") received health service");
                             }
 
                             else if (service instanceof School) {
                                 zone.addEducation();
+                                System.out.println(zoneType + " at (" + r + "," + c + ") received education service");
                             }
                         }
                     }
@@ -139,18 +143,24 @@ public class SimulationEngine {
              int share = totalPopulation/industrialCommercial.size();
              for( Zone zone : industrialCommercial ){
                  zone.addPopulation(share);
+                 String zoneType = zone.getClass().getSimpleName().replace("Zone", "");
+                 System.out.println(zoneType + " at (" + zone.getX() + "," + zone.getY() + ") received " + share + " population");
              }
          }
          if(!commercialOnly.isEmpty() && totalGoods > 0){
              int share = totalGoods/commercialOnly.size();
              for( Zone zone : commercialOnly ){
                  zone.addGoods(share);
+                 String zoneType = zone.getClass().getSimpleName().replace("Zone", "");
+                 System.out.println(zoneType + " at (" + zone.getX() + "," + zone.getY() + ") received " + share + " goods");
              }
          }
          if(!houses.isEmpty() && totalLifestyle > 0){
              int share = totalLifestyle/houses.size();
              for( Zone zone : houses ){
                  zone.addLifestyle(share);
+                 String zoneType = zone.getClass().getSimpleName().replace("Zone", "");
+                 System.out.println(zoneType + " at (" + zone.getX() + "," + zone.getY() + ") received " + share + " lifestyle");
              }
          }
      }

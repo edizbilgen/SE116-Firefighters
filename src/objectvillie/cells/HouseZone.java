@@ -8,17 +8,25 @@ public class HouseZone extends Zone {
 
     @Override
     public void processTick() {
-
+        int oldLevel = level;
         if (electricity == 0 || water == 0 || internet == 0) {
             level = 0;
             output = 0;
+            if (oldLevel > 0) {
+                System.out.println("House at (" + x + "," + y + ") levels down from " + oldLevel + " to 0");
+            }
+            generateResources();
+            System.out.println("House at (" + x + "," + y + ") generated " + output + " population");
             return;
         }
 
         if (level < 3 && canUpgrade()) {
-            level++;}
+            level++;
+            System.out.println("House at (" + x + "," + y + ") levels up from " + oldLevel + " to " + level);
+        }
 
         generateResources();
+        System.out.println("House at (" + x + "," + y + ") generated " + output + " population");
     }
 
     @Override
